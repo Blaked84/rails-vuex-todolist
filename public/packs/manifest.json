@@ -1,9 +1,9 @@
 {
   "application.css": "/packs/application-4c2aa43677e8a9b58b804b3c5577ea96.css",
-  "application.js": "/packs/application-c9e499cfbb3feca01366.js",
-  "components/app.css": "/packs/components/app-4c2aa43677e8a9b58b804b3c5577ea96.css",
-  "components/app.js": "/packs/components/app-e71d6f149d4b7f318a50.js",
+  "application.js": "/packs/application-119142d9327730b3d905.js",
+  "components/app.css": "/packs/components/app-c555d622900b052a3f6c977896a15ccb.css",
+  "components/app.js": "/packs/components/app-ddf318b7c51c74f8dc4e.js",
   "components/todo.css": "/packs/components/todo-d271316e794f164902621ec367c6964d.css",
-  "components/todo.js": "/packs/components/todo-9c066d213d5054dbf950.js",
-  "store.js": "/packs/store-6708e31dae1677724f90.js"
+  "components/todo.js": "/packs/components/todo-8f49d255c497733133e1.js",
+  "store.js": "/packs/store-d8603bebea4f3e5b1c81.js"
 }
