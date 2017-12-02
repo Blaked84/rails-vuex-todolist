@@ -7,13 +7,13 @@
 </template>
 
 <script>
-  import {mapState, mapMutations} from 'vuex'
+  import {mapState, mapActions} from 'vuex'
   
   export default {
     props: ["todo"],
     computed: mapState(['count']),
     methods: {
-      ...mapMutations(['deleteTodo', 'toggleTodo'])
+        ...mapActions(['deleteTodo', 'toggleTodo'])
     }
   }
 </script>

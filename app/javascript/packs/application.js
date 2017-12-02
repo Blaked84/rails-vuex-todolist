@@ -9,15 +9,24 @@ import Vue from 'vue/dist/vue.esm'
 import Vuex from 'vuex';
 import App from './components/app.vue';
 import Store from './store.js';
+import axios from 'axios';
+import {mapMutations} from 'vuex'
+
 
 Vue.use(Vuex);
+Vue.prototype.$http = axios;
 
 let store = new Vuex.Store(Store);
 
 document.addEventListener('DOMContentLoaded', () => {
-  const app = new Vue({
-    el: '#application',
-    store,
-    components: { App }
-  })
+    const app = new Vue({
+        el: '#application',
+        store,
+        components: { App },
+        created () {
+          this.$store.commit('initTodo')
+        },
+        methods: {...mapMutations(['initTodo'])},
+
+    })
 })

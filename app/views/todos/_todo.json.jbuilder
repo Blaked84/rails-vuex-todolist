@@ -1,5 +1,5 @@
 json.extract! todo,
-              :id,
+              # :id,
               :name,
               :done
 json.url todo_url(todo, format: :json)

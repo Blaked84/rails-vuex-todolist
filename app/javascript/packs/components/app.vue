@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <input placeholder="New Todo" @keyup.enter="addTodo"/>
-    <button @click="completeAll" v-show="! allTodoCompleted">All done!</button>
     <ul>
       <todo v-for="(todo, index) in todos" :key="index" :todo="todo" ></todo>
     </ul>
@@ -9,24 +8,22 @@
 </template>
 
 <script>
-  import {mapState, mapMutations} from 'vuex'
+  import {mapState, mapMutations, mapActions} from 'vuex'
   import Todo from './todo.vue'
   
   export default {
     computed: {
-        ...mapState(['todos']),
-        allTodoCompleted() {
-            return this.todos.every(todo => todo.done)
-        }
+        ...mapState(['todos'])
     },
     components: {
       Todo,
     },
     methods: {
-        ...mapMutations(['completeAll']),
+        ...mapMutations(['completeAll', 'initTodo']),
+        ...mapActions(['createTodo']),
         addTodo(e) {
             let body = e.target.value;
-            this.$store.commit('addTodo', body);
+            this.$store.dispatch('createTodo', body);
             e.target.value = "";
         }
     }
