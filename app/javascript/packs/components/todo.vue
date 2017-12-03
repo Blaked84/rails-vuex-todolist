@@ -1,8 +1,12 @@
 <template>
     <li class="todo" :class="{'is_complete': todo.done}">
         <input type="checkbox" :checked="todo.done" @change="toggleTodo(todo)"/>
-        {{ todo.name }}
-        <button @click="deleteTodo(todo)">x</button>
+        
+        <span v-show="!editMode" @click="toggleEditMode(true)">{{ todo.name }}</span>
+        <input v-model="editName" v-show="editMode" @keyup.enter="updateTodo"/>
+        
+        <button @click="deleteTodo(todo)" v-show="!editMode">x</button>
+        <button @click="toggleEditMode(false)" v-show="editMode">cancel</button>
     </li>
 </template>
 
@@ -11,9 +15,25 @@
   
   export default {
     props: ["todo"],
+    data() {
+        return {
+            editMode: false,
+            editName: ""
+        }
+    },
     computed: mapState(['count']),
     methods: {
-        ...mapActions(['deleteTodo', 'toggleTodo'])
+        ...mapActions(['deleteTodo', 'toggleTodo']),
+        toggleEditMode(status) {
+            this.editName = this.todo.name;
+            this.editMode = status
+        },
+        updateTodo() {
+            let newTodo = this.todo;
+            newTodo.name = this.editName;
+            this.$store.dispatch('updateTodo', newTodo);
+            this.toggleEditMode(false)
+        }
     }
   }
 </script>

@@ -4,6 +4,7 @@
     <ul>
       <todo v-for="(todo, index) in todos" :key="index" :todo="todo" ></todo>
     </ul>
+    <span class="tips">Click on a task to edit</span>
   </div>
 </template>
 
@@ -31,8 +32,11 @@
 </script>
 
 <style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
+  p {
+    font-size: 2em;
+    text-align: center;
+  }
+  .tips {
+    color: #999999
+  }
 </style>

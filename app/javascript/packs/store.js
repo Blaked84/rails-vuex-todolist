@@ -48,14 +48,16 @@ export default {
       },
 
       toggleTodo(context, todo) {
-          let payload = {
-              done: !todo.done
-          };
-          axios.patch(todo.url, payload)
-          .then( responce => {
-              context.commit('updateTodo', todo, responce.data);
-          })
-      }
+          todo.done = !todo.done;
+          context.dispatch('updateTodo', todo)
+      },
+
+      updateTodo(context, todo) {
+          axios.patch(todo.url, todo)
+              .then( responce => {
+                  context.commit('updateTodo', todo, responce.data);
+              })
+      },
   }
 
 };
