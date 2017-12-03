@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         store,
         components: { App },
         created () {
-          this.$store.commit('initTodo')
+            this.$store.commit('initTodo')
         },
         methods: {...mapMutations(['initTodo'])},
 

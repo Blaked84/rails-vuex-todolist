@@ -11,9 +11,9 @@
 </template>
 
 <script>
-  import {mapState, mapActions} from 'vuex'
-  
-  export default {
+    import {mapState, mapActions} from 'vuex'
+    
+    export default {
     props: ["todo"],
     data() {
         return {
@@ -35,7 +35,7 @@
             this.toggleEditMode(false)
         }
     }
-  }
+    }
 </script>
 
 <style scoped>
