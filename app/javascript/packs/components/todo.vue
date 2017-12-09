@@ -42,4 +42,9 @@
     .todo.is_complete{
         color: #999999;
     }
+
+    li {
+        padding-top: 0.3em;
+        padding-bottom: 0.3em;
+    }
 </style>
